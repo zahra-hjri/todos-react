@@ -54,7 +54,7 @@ const handlerChangeInput = (e)=>{
                {todo.task}
                 <div className="flex">
                 <FaEdit className="text-pink-500 cursor-pointer lg:text-xl  hover:text-pink-700"/>
-                <MdDoneAll className="text-green-500 cursor-pointer mx-2 lg:text-2xl hover:text-green-800"/>
+                <MdDoneAll className="text-green-500 cursor-pointer mx-2 lg:text-2xl hover:text-green-700"/>
                 <FaTrash className="text-red-700 cursor-pointer lg:text-xl hover:text-red-900"/>
                 </div>
                </div>
