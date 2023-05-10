@@ -6,6 +6,7 @@ import {MdDoneAll} from "react-icons/md"
 const ControlledInput = ()=>{
     const [ inputValue , setInputValue ] = useState("")
     const [todoList , setTodoList] = useState([])
+    const [iscomplete,setIsComplete] = useState(false)
 
 const handlerChangeInput = (e)=>{
     setInputValue(e.target.value)
@@ -23,10 +24,12 @@ const handlerChangeInput = (e)=>{
             complete:false,
         }])
         setInputValue("")
-
-       
-    
     }
+    const handleComplete = (id) =>{
+        setIsComplete(!iscomplete)
+        console.log(iscomplete)
+    }
+    
     const handleClearAllTodo = ()=>{
         setTodoList([])
     }
@@ -34,8 +37,7 @@ const handlerChangeInput = (e)=>{
     return(
         <>
         <form onSubmit={handleSubmit} className="flex justify-center mx-2">
-            <input value={inputValue} onInput={handlerChangeInput} placeholder="Enter your task ..." className="p-1 md-p-3 w-96 bg-slate-700 rounded-lg outline-none mr-2 text-white"></input>
-            {/* <button onClick={handleClick} className="btn btn-success" type="submit">Submit</button> */}
+            <input value={inputValue} onInput={handlerChangeInput} placeholder="Enter your task ..." className="py-1 px-3 md-p-3 w-96 bg-slate-700 rounded-lg outline-none mr-2 text-white "></input>
             <button onClick={()=> handleClick()} className="btn btn-success px-3 py-2">Add</button>
 
         </form>
@@ -54,7 +56,8 @@ const handlerChangeInput = (e)=>{
                {todo.task}
                 <div className="flex">
                 <FaEdit className="text-pink-500 cursor-pointer lg:text-xl  hover:text-pink-700"/>
-                <MdDoneAll className="text-green-500 cursor-pointer mx-2 lg:text-2xl hover:text-green-700"/>
+                <MdDoneAll onClick={handleComplete} 
+                 className="text-green-500 cursor-pointer mx-2 lg:text-2xl hover:text-green-700"/>
                 <FaTrash className="text-red-700 cursor-pointer lg:text-xl hover:text-red-900"/>
                 </div>
                </div>
