@@ -19,11 +19,11 @@ const TodoList = ({id,name,todo,setTodo}) =>{
 
     return(
         <div className="flex justify-center">
-       <div className="flex justify-between w-3/6 bg-slate-800 rounded-lg p-3 text-white my-1">
-       <p className={complete && "com"}>{name}</p>
+       <div className="flex justify-between w-96 sm:w-2/3 md:w-3/5 bg-slate-800 rounded-lg py-3 sm:py-5 mt-1 lg:p-5 text-white px-1 sm:px-3">
+       <p className={`px-1 lg:px-2 ${complete && "completed"}`}>{name}</p>
         <div className="flex">
         <FaTrash  onClick={()=>{handleDeleteTodo(id)}} className="text-red-700 cursor-pointer lg:text-xl hover:text-red-900"/>
-        <MdDoneAll onClick={()=>{handleCompleteTodo(id)}} className="text-green-500 cursor-pointer mx-2 lg:text-2xl hover:text-green-700"/>
+        <MdDoneAll onClick={()=>{handleCompleteTodo(id)}} className="text-green-500 cursor-pointer mx-1 lg:mx-2 lg:text-2xl hover:text-green-700"/>
 
         <EditTodo id={id} todo={todo} setTodo={setTodo} />
         </div>
